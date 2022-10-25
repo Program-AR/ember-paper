@@ -27,7 +27,8 @@ let PaperIconComponent = Component.extend(ColorMixin, {
   reverseSpin: false,
 
   iconClass: computed('icon', 'positionalIcon', function() {
-    let icon = this.getWithDefault('positionalIcon', this.icon);
+    let icon = this.get('positionalIcon');
+    if(icon === undefined) icon = this.icon;
     return icon;
   }),
 
